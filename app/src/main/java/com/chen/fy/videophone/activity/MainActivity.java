@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.chen.fy.videophone.R;
 import com.chen.fy.videophone.fragment.AudioFragment;
@@ -21,21 +22,33 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     private AudioFragment audioFragment;
     private NetAudioFragment netAudioFragment;
 
+    private View search;
+    private View game;
+    private View history;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RadioGroup rg_main = findViewById(R.id.rg_main);
+        search = findViewById(R.id.top_search);
+        game = findViewById(R.id.top_game);
+        history = findViewById(R.id.top_history);
 
         videoFragment = new VideoFragment();
         netVideoFragment = new NetVideoFragment();
         audioFragment = new AudioFragment();
         netAudioFragment = new NetAudioFragment();
 
-        RadioGroup rg_main = findViewById(R.id.rg_main);
-        rg_main.setOnCheckedChangeListener(this);
-
         //第一次进入主界面显示本地视频界面
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_main,videoFragment).commitAllowingStateLoss();
+
+        //设置点击事件
+        rg_main.setOnCheckedChangeListener(this);
+        search.setOnClickListener(this);
+        game.setOnClickListener(this);
+        history.setOnClickListener(this);
     }
 
     /**
@@ -55,6 +68,18 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         switch (v.getId()){
+            //顶部标题栏
+            case R.id.top_search:
+                Toast.makeText(MainActivity.this, "搜索", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.top_game:
+                Toast.makeText(MainActivity.this, "游戏", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.top_history:
+                Toast.makeText(MainActivity.this, "历史", Toast.LENGTH_SHORT).show();
+                break;
+
+            //底部导航栏
             case R.id.rb_video:
                 fragmentTransaction.replace(R.id.fragment_main,videoFragment);
                 fragmentTransaction.commitAllowingStateLoss();

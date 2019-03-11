@@ -2,15 +2,12 @@
 
     <item name="n" type="id"/>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
 
     <style name="bottom_style">
         <!-- 主界面底部导航栏风格样式 -->
@@ -23,5 +20,8 @@
         <item name="android:gravity">center</item>
         <item name="android:layout_weight">1</item>
     </style>
+
+    <!--主界面状态栏-->
+    <style name="VideoMainTheme" parent="AppTheme"/>
 
 </resources>
