@@ -5,10 +5,11 @@
     android:background="@android:color/black"
     android:gravity="center">
 
-    <VideoView
+    <com.chen.fy.videophone.view.MyVideoView
         android:id="@+id/video_player"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

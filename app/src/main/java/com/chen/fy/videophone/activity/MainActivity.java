@@ -1,5 +1,6 @@
 package com.chen.fy.videophone.activity;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -70,7 +71,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         switch (v.getId()){
             //顶部标题栏
             case R.id.top_search:
-                Toast.makeText(MainActivity.this, "搜索", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+                startActivity(intent);
                 break;
             case R.id.top_game:
                 Toast.makeText(MainActivity.this, "游戏", Toast.LENGTH_SHORT).show();

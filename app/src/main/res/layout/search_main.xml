@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--顶部-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#1296db"
+        android:fitsSystemWindows="true"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/search_main"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/search_bg_selector"
+            android:clickable="true"
+            android:drawableLeft="@drawable/search_left_selector"
+            android:gravity="center_vertical"
+            android:hint="全网搜索"
+            android:textColor="@drawable/search_text_selector" />
+
+        <ImageView
+            android:id="@+id/search_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/record_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:text="搜索"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

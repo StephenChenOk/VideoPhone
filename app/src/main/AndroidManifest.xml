@@ -26,8 +26,20 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/VideoMainTheme" />
+        <activity android:name=".activity.VideoPlayer" />
+
+        <activity android:name=".activity.AudioPlayer" />
+
         <activity
-            android:name=".activity.VideoPlayer" />
+            android:name=".activity.SearchActivity"
+            android:theme="@style/VideoMainTheme" />
+
+        <service android:name=".service.MediaService">
+            <intent-filter>
+                <action android:name="com.chen.videoPhone_openMusic" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

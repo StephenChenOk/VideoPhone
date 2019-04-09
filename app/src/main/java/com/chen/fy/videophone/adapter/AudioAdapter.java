@@ -12,18 +12,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.chen.fy.videophone.R;
+import com.chen.fy.videophone.activity.AudioPlayer;
 import com.chen.fy.videophone.activity.VideoPlayer;
 import com.chen.fy.videophone.beans.MediaInfo;
 import com.chen.fy.videophone.utils.Util;
 
 import java.util.ArrayList;
 
-public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
+public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> {
 
     private ArrayList<MediaInfo> list;
     private Context context;
 
-    public VideoAdapter(ArrayList<MediaInfo> list, Context context) {
+    public AudioAdapter(ArrayList<MediaInfo> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -31,12 +32,12 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.video_item, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.audio_item, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
 
         MediaInfo mediaInfo = list.get(i);
         viewHolder.tv_name.setText(mediaInfo.getName());
@@ -49,11 +50,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MediaInfo mediaInfo = list.get(viewHolder.getAdapterPosition());
-                Intent intent = new Intent(context, VideoPlayer.class);
-                intent.setDataAndType(Uri.parse(mediaInfo.getData()), "Video/*");
+                Intent intent = new Intent(context, AudioPlayer.class);
+                //播放列表中的某个音频
+                intent.putExtra("position",i);
                 context.startActivity(intent);
-
             }
         });
     }
